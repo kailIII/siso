@@ -1,4 +1,4 @@
 siso
 ====
 
-Sistema Odontológico
+Sistema Odontológico implementado através do uso do Entities Framework.
