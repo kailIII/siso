@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context antiJARLocking="true" path="/Entities-Blank-nb">
+  <!-- Java db 
+  <Resource auth="Container" 
+            type="javax.sql.DataSource" 
+            description="JavaDB for Entities Blank" 
+            driverClassName="org.apache.derby.jdbc.ClientDriver" 
+            url="jdbc:derby://localhost:1527/blank;create=true" 
+            name="jdbc/datasource" 
+            username="blank" password="blank" 
+            maxActive="20" maxIdle="10" maxWait="-1" />
+  -->
+  <!-- Postgres -->
+    <Resource auth="Container"
+              type="javax.sql.DataSource"
+              driverClassName="org.postgresql.Driver"
+              url="jdbc:postgresql://localhost:5432/test"
+              name="jdbc/datasource"
+              username="postgres" password="postgres"
+              maxActive="20" maxIdle="10" maxWait="-1" />
+</Context>
