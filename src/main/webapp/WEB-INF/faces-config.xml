@@ -14,8 +14,8 @@
             <var>i18n</var>
         </resource-bundle>
         <locale-config>
-            <default-locale>pt</default-locale>
-            <supported-locale>pt</supported-locale>
+            <default-locale>pt_BR</default-locale>
+            <supported-locale>pt_BR</supported-locale>
             <supported-locale>en</supported-locale>
         </locale-config>
     </application>

@@ -12,7 +12,6 @@
                 <h:form>
 
 
-
                     <rich:toolBar>
                         <rich:dropDownMenu value="Menu">
                             <!--                                               
@@ -23,9 +22,8 @@
                             <rich:menuItem rendered="#{empty context.currentUser()}">
                                 <e:go label="Login" viewname="security.Usuario@Login" page="main.jsf"/>
                             </rich:menuItem>
-                            
-                            
 
+                            
                             <rich:menuItem  rendered="#{not empty context.currentUser()}">
                                 <e:go label="Sair" viewname="security.Usuario@Logout" page="main.jsf"/>
                             </rich:menuItem>
@@ -78,9 +76,9 @@
                                     <f:param name="view" value="model.Paciente@Pacientes" />
                                 </h:outputLink>
                             </rich:menuItem>
-                            
-                            </rich:dropDownMenu>
-                                           
+
+
+                        </rich:dropDownMenu>
 
                         <rich:dropDownMenu value="Primeiras Consultas / Atendimentos / Encaminhamentos" rendered='#{context.currentUser().hasRoles("Administrador", "Atendente","Odontologo")}'>
 
@@ -137,7 +135,16 @@
                             </rich:menuItem>
                             
                         </rich:dropDownMenu>
-                       
+                        <!--<rich:dropDownMenu value="#{i18n['menu.label.setup']}">
+                            <rich:menuItem value="Tema :">
+                                <e:themes>
+                                    <f:selectItem itemLabel="Violet Rays" itemValue="violetRays" />
+                                </e:themes>
+                            </rich:menuItem>
+                            <rich:menuItem value="Skin :">
+                                <e:skins/>
+                            </rich:menuItem>
+                        </rich:dropDownMenu>-->
                     </rich:toolBar>
                 </h:form>
             </ui:define>
@@ -152,30 +159,29 @@
                             </ul>
                         </li>
 
-                        
+                        <!--<li>
+                            <h2>#{i18n['menu.label.setup']}</h2>
+                            <ul class="blocklist">
+                                <h:form>
+                                    <li>
+                                        <e:themes>
+                                            <f:selectItem itemLabel="Violet Rays" itemValue="violetRays" />
+                                        </e:themes>
+                                    </li>
+                                    <li><e:skins/></li>
+                                </h:form>
+                            </ul>
+                        </li>-->
                     </ul>
                 </h:panelGroup>
             </ui:define>
 
             <ui:define name="content">
-                <h:panelGroup rendered="#{empty autoEntityBackBean.entity}">
-                    <br/><br/>
-                    <div class="post">
-                        <center>
-                            <h1 class="title">Bem vindo ao</h1>
-                            <p><b><i><h1>Sistema Odontológico de Quixadá</h1></i></b></p>
-                            <h:graphicImage url="img/logo.png"/>
-                            <div class="entry">
+                <center>  
+                    <h:graphicImage url="img/MapaDentario.jpg" />
 
-                            </div>
-
-                        </center>
-                    </div>
-
-                    <br/><br/>
-                </h:panelGroup>
-
-                <e:view />
+                </center>
+                <e:view name="model.Atendimento@Atendimentos"/>
             </ui:define>
 
         </ui:composition>

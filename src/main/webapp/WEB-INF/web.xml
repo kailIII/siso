@@ -22,7 +22,7 @@
     <!-- Início Configuração do Entities -->
     <context-param>
         <param-name>br.entities.THEME</param-name>
-        <param-value>brewedcoffee</param-value>
+        <param-value>uecePadrao</param-value>
     </context-param>
 
     <filter>
@@ -173,7 +173,7 @@
 
     <context-param>
         <param-name>org.richfaces.SKIN</param-name>
-        <param-value>#{currentSkin==null ? 'DEFAULT' : currentSkin}</param-value>
+        <param-value>emeraldTown</param-value>
     </context-param>
 
     <context-param>
