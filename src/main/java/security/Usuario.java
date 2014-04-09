@@ -21,6 +21,7 @@ import org.hibernate.annotations.Type;
 import org.hibernate.validator.constraints.NotEmpty;
 
 import entities.Context;
+import entities.CurrentUser;
 import entities.Repository;
 import entities.annotations.ActionDescriptor;
 import entities.annotations.Editor;
@@ -33,7 +34,7 @@ import entities.annotations.Views;
 import entities.dao.DAOConstraintException;
 import entities.dao.DAOException;
 import entities.dao.DAOValidationException;
-import entities.security.CurrentUser;
+
 
 @Entity
 @NamedQueries({

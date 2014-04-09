@@ -34,7 +34,7 @@ public class ConnectionFactory {
     public static Connection getConnection() throws SQLException {
         try {
             
-            String DRIVER = "org.apache.derby.jdbc.ClientDriver";
+            String DRIVER = "org.postgresql.Driver";
             Class.forName(DRIVER);
             System.out.println("Conectando ao banco  sistemaodontologico...");         
             return DriverManager.getConnection("jdbc:postgresql://localhost:5432/siso", USERNAME, PASSWORD);      
