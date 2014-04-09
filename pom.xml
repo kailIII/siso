@@ -40,7 +40,11 @@
 			<groupId>javax.servlet</groupId>
 			<artifactId>jstl</artifactId>
 			<version>1.2</version>
-			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>taglibs</groupId>
+			<artifactId>standard</artifactId>
+			<version>1.1.2</version>
 		</dependency>
 		<dependency>
 			<groupId>javax.faces</groupId>
@@ -64,8 +68,13 @@
 		</dependency>
 		<dependency>
 			<groupId>org.hibernate</groupId>
-			<artifactId>hibernate-entitymanager</artifactId>
-			<version>4.3.1.Final</version>
+			<artifactId>hibernate-core</artifactId>
+			<version>3.6.10.Final</version>
+		</dependency>
+		<dependency>
+			<groupId>javassist</groupId>
+			<artifactId>javassist</artifactId>
+			<version>3.12.1.GA</version>
 		</dependency>
 		<dependency>
 			<groupId>postgresql</groupId>
@@ -120,7 +129,7 @@
 		<dependency>
 			<groupId>entities</groupId>
 			<artifactId>Entities</artifactId>
-			<version>3.8.2</version>
+			<version>3.8.3-RC</version>
 		</dependency>
 		<dependency>
 			<groupId>entities</groupId>
@@ -130,7 +139,7 @@
 		<dependency>
 			<groupId>entities</groupId>
 			<artifactId>freecssTemplates</artifactId>
-			<version>1.0</version>
+			<version>1.1</version>
 		</dependency>
 	</dependencies>
 	<build>
