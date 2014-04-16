@@ -15,9 +15,8 @@
 	<!-- In Project repository -->
 	<repositories>
 		<repository>
-			<id>in-project</id>
-			<name>In Project Repo</name>
-			<url>file://${project.basedir}/lib</url>
+			<id>entities</id>
+			<url>https://dl.dropboxusercontent.com/u/1477113/maven/</url>
 		</repository>
 		<repository>
 			<id>jboss-releases</id>
