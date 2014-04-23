@@ -132,8 +132,8 @@
 		</dependency>
 		<dependency>
 			<groupId>entities</groupId>
-			<artifactId>ueceTemplates</artifactId>
-			<version>1.1</version>
+			<artifactId>entities-themes</artifactId>
+			<version>1.0</version>
 		</dependency>
 		<dependency>
 			<groupId>entities</groupId>
