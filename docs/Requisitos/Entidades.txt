@@ -1,0 +1,110 @@
+passo a passo:
+
+4.Modelagem inicial
+
+  UC02-Manter Paciente
+  +Paciente 
+  (Administrador, Atendente e Odontologo)
+  -1. Nome Completo* 
+  -2. Sexo*
+  -3. Data de Nascimento*
+  -x. Idade (readonly/calculado)
+  -4. Nome da Mãe*
+  -5. Endereço*
+  -6. Número:
+  -7. Bairro:
+  -8. Telefone:  
+  obs:Paciente duplicado (mesmo nome e mesmo nome da mãe)
+
+  UC03-Manter Antendimentos
+  +Atendimento 
+  (Atendente e o Administrador)
+  -1. Data de Atendimento*
+  -2. Hora*
+  -3. Turno* (Calculado???)
+  -4. Nome do Paciente*     \
+  -5. Nome do Responsável*   --Paciente
+  -6. Data de Nascimento*   /
+  -7. Código do Procedimento*
+  -(8. Nome do Procedimento*) readonly/AJAX
+
+  UC05-Manter Tipo de Procedimentos
+  (?)
+  codigo
+  nome (nao tem???)
+  descricao
+
+
+UC-Manter Encaminhamentos
+Atores:Administrador/Atendente/Odontólogo
+1. Unidade de Saúde de Origem*: Campo de seleção simples que representa a unidade de saúde do paciente;
+2. Data do Encaminhamento*: Representa a data em que foi realizado o Encaminhamentos;
+3. Nome do Paciente*: Representa o nome do Encaminhamentos. Campo editável preenchido através da seleção de paciente de acordo com a busca do UC 03 - Manter Pacientes ou digitação; 
+4. Endereço*: Corresponde ao endereço do Encaminhamentos. Campo editável preenchido através da seleção de paciente de acordo com a busca do UC 03 - Manter Pacientes ou digitação;
+5. Telefone*: Corresponde ao número de telefone do Paciente. Campo editável preenchido através da seleção de paciente de acordo com a busca do UC 03 - Manter Pacientes ou digitação;
+6. Data de Nascimento*: Representa a data de nascimento do Paciente. Campo editável preenchido através da seleção de paciente de acordo com a busca do UC 03 - Manter Pacientes ou digitação;
+7. Sexo*: Representa o sexo do Paciente. Campo editável preenchido através da seleção de paciente de acordo com a busca do UC 03 - Manter Pacientes ou digitação;
+8. Encaminhado para*: Corresponde a unidade de saúde que o paciente deve ser encaminhado (Hospital Eudásio Barroso, CEO ou Outros).
+9. Motivo do Encaminhamento*: Representa o motivo pelo qual o paciente precisa ser atendido em outra unidade de saúde.
+10. Nome do Odontólogo Responsável*: Corresponde ao nome do cirurgião dentista responsável pelo encaminhamento do paciente. Campo editável preenchido através da seleção de odontólogo de acordo com a busca do UC 02 - Manter Odontólogo ou digitação;
+11. CRO*: Corresponde ao número do cirurgião dentista responsável pelo encaminhamento do paciente. Campo editável preenchido através da seleção de odontólogo de acordo com a busca do UC 02 - Manter Odontólogo ou digitação;
+-->O sistema possibilita a impressão do encaminhamento;
+-->Encaminhamento duplicado (mesmo nome do paciente e data de atendimento)
+
+UC??-Manter BPA
+atores: Emissor, Secretario, Chefe da Odontologia, Administrador
+1. Nome da Unidade Básica de Saúde* (Entidade???)
+2. Município*         \
+3. UF*                 \--\
+4. Bairro/Distrito*    /--/Unidade Basica de Saude
+5. SCNES da unidade*  /
+6. Mês*
+7. Ano*
+8. Folha* (??)
+9. Lista de Procedimentos*
+   >Sequencia, procedimento(?), CBO, Idade, Quantidade do Procedimento
+
+obs: O sistema encontrar um BPA duplicado (mesma SCNES da Unidade Básica de Saúde, mês e ano),
+
+
+UC-Primeira consulta
+Atores:
+Nome*: Representa o nome completo do paciente;
+Data de Nascimento*: Representa a data de nascimento do paciente;
+Sexo*: Representa o sexo do paciente. Escolha simples (M, F).
+Responsável/Apoio: Representa o nome do responsável do paciente;
+Categoria: Representa a categoria do responsável do paciente;
+Ciclo de Vida*: Campo de escolha simples que representa o ciclo de vida do paciente (criança, adolescente, adulto, idoso).
+Gestante: Campo de escolha simples (Sim, não) que informa se a paciente do sexo feminino é gestante ou não. No caso do campo sexo possuir valor “M”, este campo deve ser desabilitado;
+Período de gestação: caso o campo gestante possua o valor sim, o usuário deverá informar o período da gestação em semanas;
+Participa de Ações Coletivas?*: Campo de escolha simples (NÃO, SIM) que representa a participação em ações coletivas;
+Local das Ações coletivas: Campo de texto livre para informar o LOCAL das ações coletivas. Esse campo será habilitado quando o campo “Participa de Ações Coletivas?” possuir valor sim;
+Anamnese: Campo de texto livre utilizado para informar o uso atual de medicamentos quando necessário;
+Antecedentes Pessoais/Odontológicos: Campo de seleção simples (Sim, não) e observações referentes a cada um das questões:
+CRIANÇA / ADOLESCENTE:  As perguntas serão:
+   1. Problemas da aprendizagem/comportamento?
+   2. Problema sensorial (visão, audição, olfato)?
+   3. Resistencia ao atendimento odontológico?
+   4. Uso noturno de mamadeira?
+   5. Trauma nos dentes decíduos?
+   6. Faz uso de chupeta ou chupa o dedo?
+   7. Perda precoce dos dentes decíduos?
+   8. Problema na erupção dos dentes?
+   9. Reação anestésico local?
+   10. Respiração bucal?
+   11. Problema de posicionamento dos dentes?
+   12. Usa alimentos como doces, refrigerantes com muita frequência?
+ADULTO / IDOSO: As perguntas serão:
+   1. Abscessos dentários?
+   2. Abscessos gengivais?
+   3. Respiração bucal?
+   4. Sangramento gengival?
+   5. Mal Hálito?
+   6. Dores no rosto pela manha?
+   7. Frequência dores de cabeça? 
+   8. Usa prótese?
+   9. Bruxismo?
+--->1. Primeira Consulta o sistema encontrar uma Primeira Consulta duplicado (Nome, Data de Nascimento),
+3. Realizar Exame Clínico/Diagnóstico
+
+4.Implementando Seguranca

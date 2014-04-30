@@ -90,7 +90,7 @@ public class Usuario implements Serializable, CurrentUser {
 
     public enum Papel {
 
-        Administrador, Atendente, Odontologo, SecretarioDeSaude, ChefeDaOdontologia
+        Administrador, Atendente, Odontologo, SecretarioDeSaude, ChefeDaOdontologia, Papel
 
     }
 
