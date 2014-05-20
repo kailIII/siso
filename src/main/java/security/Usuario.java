@@ -11,6 +11,7 @@ import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.validation.constraints.NotNull;
@@ -34,6 +35,7 @@ import entities.annotations.Views;
 import entities.dao.DAOConstraintException;
 import entities.dao.DAOException;
 import entities.dao.DAOValidationException;
+import entities.descriptor.PropertyType;
 
 
 @Entity
@@ -79,7 +81,7 @@ import entities.dao.DAOValidationException;
      */
     @View(name = "CadastroDeUsuarios",
     title = "Cadastro de Usuários",
-    members = "Dados do Usuário[nome:2;usuario:2;senha,alterarSenha()],papeis",
+    members = "Dados do Usuário[foto;nome:2;usuario:2;senha,alterarSenha()],papeis",
     template = "@CRUD+@PAGER",
     roles = "Super,Administrador")
 })
@@ -87,6 +89,13 @@ import entities.dao.DAOValidationException;
 pluralDisplayName = "Usuários",
 roles = "Super,Administrador")
 public class Usuario implements Serializable, CurrentUser {
+	
+	
+	@Lob
+    @Column(length=10240) // 10kb
+    @Editor(propertyType=PropertyType.IMAGE)
+    private byte[] foto;
+	
 
     public enum Papel {
 
@@ -192,10 +201,15 @@ public class Usuario implements Serializable, CurrentUser {
         this.usuario = usuario;
     }
 
-    
-    //</editor-fold>
+    public byte[] getFoto() {
+		return foto;
+	}
 
-    // <editor-fold defaultstate="collapsed" desc="Implentação de CurrentUser">
+	public void setFoto(byte[] foto) {
+		this.foto = foto;
+	}
+
+	// <editor-fold defaultstate="collapsed" desc="Implentação de CurrentUser">
     @Override
     public String userName() {
         return getNome();

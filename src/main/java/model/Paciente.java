@@ -4,14 +4,19 @@
  */
 package model;
 
+import entities.annotations.Editor;
 import entities.annotations.PropertyDescriptor;
 import entities.annotations.View;
 import entities.annotations.Views;
+import entities.descriptor.PropertyType;
+
 import java.io.Serializable;
 import java.util.Date;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
+
 import org.hibernate.validator.constraints.NotEmpty;
 
 /**
@@ -34,6 +39,7 @@ import org.hibernate.validator.constraints.NotEmpty;
             @View(name = "Pacientes", title = "Pacientes",
             filters = "Pesquisar Por:[nomeCompletoPaciente, nomeDaMaePaciente, Ctrl.DAO.filter()]",
             members = "["
+            + "foto;"
             + "nomeCompletoPaciente; "
             + "sexoPaciente;"
             + "dataDeNascimentoPaciente;"
@@ -59,6 +65,12 @@ public class Paciente implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @PropertyDescriptor(index = 1, hidden = true)
     private Long idPaciente;
+    
+    
+    @Lob
+    @Column(length=10240) // 10kb
+    @Editor(propertyType=PropertyType.IMAGE)
+    private byte[] foto;
 
     
     @Column(length = 60)
@@ -173,7 +185,15 @@ public class Paciente implements Serializable {
         this.telefonePaciente = telefonePaciente;
     }
 
-    @Override
+    public byte[] getFoto() {
+		return foto;
+	}
+
+	public void setFoto(byte[] foto) {
+		this.foto = foto;
+	}
+
+	@Override
     public boolean equals(Object obj) {
         if (obj == null) {
             return false;

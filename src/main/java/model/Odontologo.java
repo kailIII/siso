@@ -6,6 +6,7 @@ package model;
 
 import entities.Repository;
 import entities.annotations.ActionDescriptor;
+import entities.annotations.Editor;
 import entities.annotations.EntityDescriptor;
 import entities.annotations.PropertyDescriptor;
 import entities.annotations.View;
@@ -13,10 +14,14 @@ import entities.annotations.Views;
 import entities.dao.DAOConstraintException;
 import entities.dao.DAOException;
 import entities.dao.DAOValidationException;
+import entities.descriptor.PropertyType;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+
 import javax.persistence.*;
+
 import org.hibernate.validator.constraints.NotEmpty;
 
 /**
@@ -41,6 +46,7 @@ roles = "Administrador,SecretarioDeSaude,ChefeDaOdontologia")
     @View(name = "Odontologos", title = "Odontólogos",
     filters = "Pesquisar Por:[croOdontologo, nomeOdontologo, Ctrl.DAO.filter()]",
     members = "["
+    + "foto;"
     + "croOdontologo;"
     + "nomeOdontologo;"
     + "telefoneOdontologo;"
@@ -63,6 +69,12 @@ public class Odontologo implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @PropertyDescriptor(hidden = true)
     private Integer idOdontologo;
+    
+    
+    @Lob
+    @Column(length=10240) // 10kb
+    @Editor(propertyType=PropertyType.IMAGE)
+    private byte[] foto;
 
     
     @NotEmpty(message = "Informe o nome do Odontólogo")
@@ -165,7 +177,19 @@ public class Odontologo implements Serializable {
         this.telefoneOdontologo = telefoneOdontologo;
     }
 
-    @Override
+    public byte[] getFoto() {
+		return foto;
+	}
+
+	public void setFoto(byte[] foto) {
+		this.foto = foto;
+	}
+
+
+
+
+
+	@Override
     public boolean equals(Object obj) {
         if (obj == null) {
             return false;
