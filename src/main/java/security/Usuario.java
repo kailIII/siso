@@ -92,7 +92,7 @@ public class Usuario implements Serializable, CurrentUser {
 	
 	
 	@Lob
-    @Column(length=10240) // 10kb
+    @Column(length=10240) // 10 kb
     @Editor(propertyType=PropertyType.IMAGE)
     private byte[] foto;
 	
