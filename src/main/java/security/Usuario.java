@@ -93,7 +93,9 @@ public class Usuario implements Serializable, CurrentUser {
 	
 	@Lob
     @Column(length=10240) // 10 kb
-    @Editor(propertyType=PropertyType.IMAGE)
+	@Editor(propertyType=PropertyType.IMAGE,
+			outputComponentProperties = {@Param(name="width", value="300"),
+									 	 @Param(name="lenght", value="300")})
     private byte[] foto;
 	
 

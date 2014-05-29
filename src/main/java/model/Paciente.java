@@ -5,6 +5,7 @@
 package model;
 
 import entities.annotations.Editor;
+import entities.annotations.Param;
 import entities.annotations.PropertyDescriptor;
 import entities.annotations.View;
 import entities.annotations.Views;
@@ -69,7 +70,9 @@ public class Paciente implements Serializable {
     
     @Lob
     @Column(length=10240) // 10kb
-    @Editor(propertyType=PropertyType.IMAGE)
+    @Editor(propertyType=PropertyType.IMAGE,
+			outputComponentProperties = {@Param(name="width", value="300"),
+								 @Param(name="lenght", value="300")})
     private byte[] foto;
 
     
