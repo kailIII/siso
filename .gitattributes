@@ -1,13 +1,14 @@
 # Autodetect text files
-* text=auto
+* text=lf
 
 # Definitively text files 
 *.xml text
 *.java text
 *.properties text
-*.xhtml
-*.jsp
-*.jsf
+*.html text
+*.xhtml text
+*.jsp text
+*.jsf text
 *.txt text
 *.c text
 *.h text
@@ -15,3 +16,6 @@
 # Ensure those won't be messed up with
 *.jpg binary
 *.png binary
+*.rtf binary
+*.doc binary
+*.docx binary
